@@ -15,11 +15,17 @@ class DataService {
 	
 	static let instance = DataService()
 	
+	private struct DBPathKeys {
+		static let users = "users"
+		static let groups = "groups"
+		static let feed = "feed"
+	}
+	
 	// variables
 	private var _REF_BASE = DB_BASE
-	private var _REF_USERS = DB_BASE.child("users")
-	private var _REF_GROUPS = DB_BASE.child("groups")
-	private var _REF_FEED = DB_BASE.child("feed")
+	private var _REF_USERS = DB_BASE.child(DBPathKeys.users)
+	private var _REF_GROUPS = DB_BASE.child(DBPathKeys.groups)
+	private var _REF_FEED = DB_BASE.child(DBPathKeys.feed)
 	
 	var REF_BASE: DatabaseReference { return _REF_BASE }
 	var REF_USERS: DatabaseReference { return _REF_USERS }
