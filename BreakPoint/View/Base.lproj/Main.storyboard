@@ -52,10 +52,10 @@
             </objects>
             <point key="canvasLocation" x="750" y="-320"/>
         </scene>
-        <!--View Controller-->
+        <!--LoginVC-->
         <scene sceneID="lD2-xm-fDs">
             <objects>
-                <viewController storyboardIdentifier="LoginVC" id="T1q-VZ-mWS" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginVC" id="T1q-VZ-mWS" customClass="LoginVC" customModule="BreakPoint" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CvC-0A-oEx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -69,7 +69,7 @@
                                 <color key="textColor" red="0.5607843137254902" green="0.81176470588235294" blue="0.30588235294117649" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2m6-7C-yaU">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2m6-7C-yaU" customClass="ShadowView" customModule="BreakPoint" customModuleProvider="target">
                                 <rect key="frame" x="16" y="203.66666666666663" width="343" height="406"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Pdi-Ai-R60">
@@ -204,12 +204,12 @@
                 </view>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Obu-rm-w4H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1482" y="0.0"/>
+            <point key="canvasLocation" x="-1391" y="0.0"/>
         </scene>
-        <!--View Controller-->
+        <!--AuthVC-->
         <scene sceneID="bBU-lJ-4HM">
             <objects>
-                <viewController storyboardIdentifier="AuthVC" id="mcY-iZ-XaH" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AuthVC" id="mcY-iZ-XaH" customClass="AuthVC" customModule="BreakPoint" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Tjf-qP-Jer">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -233,7 +233,7 @@
                                 </constraints>
                                 <state key="normal" image="close"/>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sZ3-XY-SHF">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sZ3-XY-SHF" customClass="ShadowView" customModule="BreakPoint" customModuleProvider="target">
                                 <rect key="frame" x="16" y="203" width="343" height="406"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="urm-6f-KgG">
@@ -245,9 +245,9 @@
                                                 <color key="textColor" red="0.0" green="0.72516298290000003" blue="0.81412178280000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ilq-Te-Qp5">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ilq-Te-Qp5" customClass="InsetTextField" customModule="BreakPoint" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="48" width="303" height="50"/>
-                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="OCZ-IZ-cND"/>
                                                 </constraints>
@@ -255,9 +255,9 @@
                                                 <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="18"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a8o-al-MQo">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a8o-al-MQo" customClass="InsetTextField" customModule="BreakPoint" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="118" width="303" height="50"/>
-                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="2MZ-6g-067"/>
                                                 </constraints>
@@ -311,7 +311,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r9c-lE-0wV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-751.20000000000005" y="0.0"/>
+            <point key="canvasLocation" x="-689" y="0.0"/>
         </scene>
         <!--Second-->
         <scene sceneID="wg7-f3-ORb">
