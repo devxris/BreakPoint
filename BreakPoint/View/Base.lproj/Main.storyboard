@@ -204,7 +204,7 @@
                 </view>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Obu-rm-w4H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1391" y="0.0"/>
+            <point key="canvasLocation" x="-1353" y="0.0"/>
         </scene>
         <!--AuthVC-->
         <scene sceneID="bBU-lJ-4HM">
