@@ -65,7 +65,7 @@
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="VQh-b2-B7m" firstAttribute="top" secondItem="d4c-kX-SCP" secondAttribute="bottom" id="1Mo-5X-9rb"/>
                             <constraint firstItem="VQh-b2-B7m" firstAttribute="trailing" secondItem="PQr-Ze-W5v" secondAttribute="trailing" id="DX0-VW-hkF"/>
@@ -83,10 +83,10 @@
             </objects>
             <point key="canvasLocation" x="749.60000000000002" y="-320.68965517241378"/>
         </scene>
-        <!--LoginVC-->
+        <!--AuthVC-->
         <scene sceneID="lD2-xm-fDs">
             <objects>
-                <viewController storyboardIdentifier="LoginVC" id="T1q-VZ-mWS" customClass="LoginVC" customModule="BreakPoint" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AuthVC" id="T1q-VZ-mWS" customClass="AuthVC" customModule="BreakPoint" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CvC-0A-oEx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -118,6 +118,9 @@
                                                 <state key="normal" title="LOGIN WITH FB">
                                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="signinWithFacebook:" destination="T1q-VZ-mWS" eventType="touchUpInside" id="tMQ-BG-yip"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J8U-pV-AgF">
                                                 <rect key="frame" x="0.0" y="163.00000000000003" width="303" height="71.666666666666657"/>
@@ -125,6 +128,9 @@
                                                 <state key="normal" title="LOGIN WITH G+">
                                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="signinWithGooglePlus:" destination="T1q-VZ-mWS" eventType="touchUpInside" id="GDu-gN-9x0"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hKP-xE-clo">
                                                 <rect key="frame" x="0.0" y="244.66666666666666" width="303" height="71.333333333333343"/>
@@ -143,6 +149,9 @@
                                         <state key="normal" title=" by email" image="emailIcon">
                                             <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="signinWithEmail:" destination="T1q-VZ-mWS" eventType="touchUpInside" id="gSr-dB-Mij"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -237,10 +246,10 @@
             </objects>
             <point key="canvasLocation" x="-1353" y="0.0"/>
         </scene>
-        <!--AuthVC-->
+        <!--LoginVC-->
         <scene sceneID="bBU-lJ-4HM">
             <objects>
-                <viewController storyboardIdentifier="AuthVC" id="mcY-iZ-XaH" customClass="AuthVC" customModule="BreakPoint" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginVC" id="mcY-iZ-XaH" customClass="LoginVC" customModule="BreakPoint" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Tjf-qP-Jer">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -263,6 +272,9 @@
                                     <constraint firstAttribute="height" constant="30" id="sre-nt-ybh"/>
                                 </constraints>
                                 <state key="normal" image="close"/>
+                                <connections>
+                                    <action selector="cancel:" destination="mcY-iZ-XaH" eventType="touchUpInside" id="BnH-dV-V91"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sZ3-XY-SHF" customClass="ShadowView" customModule="BreakPoint" customModuleProvider="target">
                                 <rect key="frame" x="16" y="203" width="343" height="406"/>
@@ -308,6 +320,9 @@
                                         <state key="normal" title="SIGN IN">
                                             <color key="titleColor" red="0.0" green="0.72516298290000003" blue="0.81412178280000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="signin:" destination="mcY-iZ-XaH" eventType="touchUpInside" id="Tre-3F-AeV"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -339,6 +354,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="w5Z-fm-spZ"/>
                     </view>
+                    <connections>
+                        <outlet property="email" destination="Ilq-Te-Qp5" id="Cr8-MW-bfZ"/>
+                        <outlet property="password" destination="a8o-al-MQo" id="FBb-hV-dTL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r9c-lE-0wV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -395,7 +414,7 @@
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="AmR-Wq-Db5" firstAttribute="trailing" secondItem="O1u-W8-tvY" secondAttribute="trailing" id="4yN-c3-mZl"/>
                             <constraint firstItem="AmR-Wq-Db5" firstAttribute="top" secondItem="QS5-Rx-YEW" secondAttribute="top" id="Dfe-XQ-wXB"/>

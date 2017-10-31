@@ -10,5 +10,16 @@ import UIKit
 
 class AuthVC: UIViewController {
 
-
+	// target actions
+	
+	@IBAction func signinWithEmail(_ sender: UIButton) {
+		guard let loginVC = storyboard?.instantiateViewController(withIdentifier: "LoginVC") else { return }
+		present(loginVC, animated: true, completion: nil)
+	}
+	
+	@IBAction func signinWithFacebook(_ sender: UIButton) {
+	}
+	
+	@IBAction func signinWithGooglePlus(_ sender: UIButton) {
+	}
 }
