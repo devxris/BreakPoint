@@ -11,17 +11,19 @@ import Firebase
 
 let DB_BASE = Database.database().reference() // Firebase database singleton reference
 
+struct DBPathKeys {
+	static let provider = "provider"
+	static let email = "email"
+	static let users = "users"
+	static let groups = "groups"
+	static let feed = "feed"
+	static let content = "content"
+	static let senderId = "senderId"
+}
+
 class DataService {
 	
 	static let instance = DataService()
-	
-	private struct DBPathKeys {
-		static let users = "users"
-		static let groups = "groups"
-		static let feed = "feed"
-		static let content = "content"
-		static let senderId = "senderId"
-	}
 	
 	// variables
 	private var _REF_BASE = DB_BASE
@@ -58,6 +60,15 @@ class DataService {
 				messages.append(message)
 			}
 			compeletion(messages)
+		}
+	}
+	
+	func gerUsername(from uid: String, completion: @escaping (_ username: String) -> Void) {
+		REF_USERS.observeSingleEvent(of: .value) { (users) in
+			guard let users = users.children.allObjects as? [DataSnapshot] else { return }
+			users.forEach {
+				if $0.key == uid { completion($0.childSnapshot(forPath: DBPathKeys.email).value as! String) }
+			}
 		}
 	}
 }

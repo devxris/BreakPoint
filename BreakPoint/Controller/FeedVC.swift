@@ -15,6 +15,8 @@ class FeedVC: UIViewController {
 		didSet {
 			feedTable.dataSource = self
 			feedTable.delegate = self
+			feedTable.estimatedRowHeight = 100
+			feedTable.rowHeight = UITableViewAutomaticDimension
 		}
 	}
 	
@@ -25,7 +27,7 @@ class FeedVC: UIViewController {
 		super.viewWillAppear(animated)
 		
 		DataService.instance.getAllFeeds { (fetchedMessages) in
-			self.messages = fetchedMessages
+			self.messages = fetchedMessages.reversed()
 			DispatchQueue.main.async { self.feedTable.reloadData() }
 		}
 	}
@@ -41,7 +43,9 @@ extension FeedVC: UITableViewDataSource, UITableViewDelegate {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! FeedCell
 		let message = messages[indexPath.row]
 		let profileImage = UIImage(named: "defaultProfileImage")!
-		cell.configure(profileImage: profileImage, email: message.senderId, messageContent: message.content)
+		DataService.instance.gerUsername(from: message.senderId) { (username) in
+			cell.configure(profileImage: profileImage, email: username, messageContent: message.content)
+		}
 		return cell
 	}
 }

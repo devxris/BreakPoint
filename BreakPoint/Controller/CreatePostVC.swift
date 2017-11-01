@@ -17,6 +17,11 @@ class CreatePostVC: UIViewController {
 	@IBOutlet weak var textView: UITextView! { didSet { textView.delegate = self} }
 	@IBOutlet weak var sendButton: UIButton! { didSet { sendButton.bindToKeyboard()} }
 	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		email.text = Auth.auth().currentUser?.email
+	}
+	
 	// target actions
 	@IBAction func send(_ sender: UIButton) {
 		guard let message = textView.text, message != "start posting here..." else { return }

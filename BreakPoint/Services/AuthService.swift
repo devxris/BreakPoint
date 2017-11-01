@@ -18,8 +18,8 @@ class AuthService {
 		Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
 			
 			guard let user = user else { completion(false, error); return }
-			let userData: [String: Any] = ["provider": user.providerID,
-			                               "email": user.email as Any]
+			let userData: [String: Any] = [DBPathKeys.provider: user.providerID,
+			                               DBPathKeys.email: user.email as Any]
 			DataService.instance.createDBUser(uid: user.uid, userData: userData)
 		}
 	}
