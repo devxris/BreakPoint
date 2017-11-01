@@ -15,7 +15,7 @@ class CreatePostVC: UIViewController {
 	@IBOutlet weak var profileImage: UIImageView!
 	@IBOutlet weak var email: UILabel!
 	@IBOutlet weak var textView: UITextView! { didSet { textView.delegate = self} }
-	@IBOutlet weak var sendButton: UIButton!
+	@IBOutlet weak var sendButton: UIButton! { didSet { sendButton.bindToKeyboard()} }
 	
 	// target actions
 	@IBAction func send(_ sender: UIButton) {
