@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -57,13 +58,53 @@
                                 <rect key="frame" x="0.0" y="100" width="375" height="629"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="100" id="asQ-tb-ch3">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="100" id="asQ-tb-ch3" customClass="FeedCell" customModule="BreakPoint" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="asQ-tb-ch3" id="t5l-UW-Vnj">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="99.666666666666671"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultProfileImage" translatesAutoresizingMaskIntoConstraints="NO" id="2Qf-AW-6s0">
+                                                    <rect key="frame" x="8" y="8" width="50" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="50" id="76h-gH-y2H"/>
+                                                        <constraint firstAttribute="height" constant="50" id="UxC-kd-XSw"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="QY2-K5-6Ia">
+                                                    <rect key="frame" x="68" y="17.999999999999996" width="375" height="63.666666666666657"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="user@breakpoint.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CxS-a8-qcN">
+                                                            <rect key="frame" x="0.0" y="0.0" width="375" height="27"/>
+                                                            <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="15"/>
+                                                            <color key="textColor" red="0.17254901959999999" green="0.83137254900000002" blue="0.84705882349999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="message content" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="Dqw-AX-KHg">
+                                                            <rect key="frame" x="0.0" y="37" width="375" height="26.666666666666671"/>
+                                                            <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="12"/>
+                                                            <color key="textColor" red="0.17254901959999999" green="0.83137254900000002" blue="0.84705882349999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="2Qf-AW-6s0" firstAttribute="leading" secondItem="t5l-UW-Vnj" secondAttribute="leadingMargin" id="9AS-mP-6df"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="QY2-K5-6Ia" secondAttribute="bottom" constant="10" id="bPu-xp-jTf"/>
+                                                <constraint firstItem="2Qf-AW-6s0" firstAttribute="top" secondItem="t5l-UW-Vnj" secondAttribute="topMargin" id="fiK-PU-DQI"/>
+                                                <constraint firstItem="QY2-K5-6Ia" firstAttribute="leading" secondItem="2Qf-AW-6s0" secondAttribute="trailing" constant="10" id="oLV-cx-YV6"/>
+                                                <constraint firstItem="QY2-K5-6Ia" firstAttribute="top" secondItem="t5l-UW-Vnj" secondAttribute="topMargin" constant="10" id="pbl-Ur-fcE"/>
+                                                <constraint firstAttribute="trailing" secondItem="QY2-K5-6Ia" secondAttribute="trailing" constant="10" id="xJc-HR-VnT"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="email" destination="CxS-a8-qcN" id="gk5-qC-7DR"/>
+                                            <outlet property="messgeContent" destination="Dqw-AX-KHg" id="rJZ-Ru-vcB"/>
+                                            <outlet property="profileImage" destination="2Qf-AW-6s0" id="BQp-4J-LeL"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>

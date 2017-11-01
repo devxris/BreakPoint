@@ -23,6 +23,7 @@
 		4556AA831FA87927000A7D20 /* MeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4556AA821FA87927000A7D20 /* MeVC.swift */; };
 		4556AA851FA87FEF000A7D20 /* CreatePostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4556AA841FA87FEF000A7D20 /* CreatePostVC.swift */; };
 		4556AA871FA968C8000A7D20 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4556AA861FA968C8000A7D20 /* UIView+Ext.swift */; };
+		4556AA891FA96DD1000A7D20 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4556AA881FA96DD1000A7D20 /* FeedCell.swift */; };
 		521B004C5282501B5509063B /* Pods_BreakPoint.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ECF01F638B620742EB48990 /* Pods_BreakPoint.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +48,7 @@
 		4556AA821FA87927000A7D20 /* MeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeVC.swift; sourceTree = "<group>"; };
 		4556AA841FA87FEF000A7D20 /* CreatePostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostVC.swift; sourceTree = "<group>"; };
 		4556AA861FA968C8000A7D20 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
+		4556AA881FA96DD1000A7D20 /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 		7EBCE6C105140656864D30B6 /* Pods-BreakPoint.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BreakPoint.release.xcconfig"; path = "Pods/Target Support Files/Pods-BreakPoint/Pods-BreakPoint.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -117,6 +119,7 @@
 			children = (
 				4556AA641FA7709F000A7D20 /* LaunchScreen.storyboard */,
 				4556AA5F1FA7709F000A7D20 /* Main.storyboard */,
+				4556AA881FA96DD1000A7D20 /* FeedCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -302,6 +305,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4556AA831FA87927000A7D20 /* MeVC.swift in Sources */,
+				4556AA891FA96DD1000A7D20 /* FeedCell.swift in Sources */,
 				4556AA791FA85F03000A7D20 /* AuthVC.swift in Sources */,
 				4556AA5E1FA7709F000A7D20 /* FeedVC.swift in Sources */,
 				4556AA7B1FA85F14000A7D20 /* LoginVC.swift in Sources */,
