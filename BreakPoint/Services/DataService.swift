@@ -19,6 +19,8 @@ class DataService {
 		static let users = "users"
 		static let groups = "groups"
 		static let feed = "feed"
+		static let content = "content"
+		static let senderId = "senderId"
 	}
 	
 	// variables
@@ -40,8 +42,22 @@ class DataService {
 		if groupKey != nil {
 			// send to group reference
 		} else {
-			REF_FEED.childByAutoId().updateChildValues(["content": message, "senderId": uid])
+			REF_FEED.childByAutoId().updateChildValues([DBPathKeys.content: message, DBPathKeys.senderId: uid])
 			completion(true)
+		}
+	}
+	
+	func getAllFeeds(compeletion: @escaping (_ message: [Message]) -> Void) {
+		var messages = [Message]()
+		REF_FEED.observeSingleEvent(of: .value) { (feedMessages) in
+			guard let feedMessages = feedMessages.children.allObjects as? [DataSnapshot] else { return }
+			feedMessages.forEach {
+				let content = $0.childSnapshot(forPath: DBPathKeys.content).value as! String
+				let senderId = $0.childSnapshot(forPath: DBPathKeys.senderId).value as! String
+				let message = Message(content: content, senderId: senderId)
+				messages.append(message)
+			}
+			compeletion(messages)
 		}
 	}
 }
