@@ -26,6 +26,8 @@ class InsetTextField: UITextField {
 	func setupView() {
 		let placeHolder = NSAttributedString(string: self.placeholder!, attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
 		self.attributedPlaceholder = placeHolder
+		self.layer.cornerRadius = 10
+		self.layer.masksToBounds = true
 	}
 	
 	// override UITextField superclass
