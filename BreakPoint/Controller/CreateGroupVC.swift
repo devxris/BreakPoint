@@ -29,6 +29,12 @@ class CreateGroupVC: UIViewController {
 	
 	// variables
 	var emails = [String]()
+	var chosenUsers = [String]()
+	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		doneButton.isHidden = false
+	}
 	
 	// selector actions
 	@objc func textFieldDidChange() {
@@ -59,7 +65,27 @@ extension CreateGroupVC: UITableViewDataSource, UITableViewDelegate {
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! UserCell
 		let profileImage = UIImage(named: "defaultProfileImage")!
-		cell.configure(profileImage: profileImage, email: emails[indexPath.row], isSelected: true)
+		let isSelected = chosenUsers.contains(emails[indexPath.row])
+		cell.configure(profileImage: profileImage, email: emails[indexPath.row], isSelected: isSelected)
 		return cell
+	}
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		tableView.deselectRow(at: indexPath, animated: true)
+		// need to get info from real cell rather than dequeueCell which is just a temporary one
+		guard let cell = tableView.cellForRow(at: indexPath) as? UserCell else { return }
+		guard let chosenUser = cell.email.text else { return }
+		if !chosenUsers.contains(chosenUser) {
+			chosenUsers.append(chosenUser)
+			groupMemberLabel.text = chosenUsers.joined(separator: ", ")
+			doneButton.isHidden = false
+		} else {
+			chosenUsers = chosenUsers.filter { $0 != chosenUser }
+			if chosenUsers.count >= 1 {
+				groupMemberLabel.text = chosenUsers.joined(separator: ", ")
+			} else {
+				groupMemberLabel.text = "invite people"
+				doneButton.isHidden = true
+			}
+		}
 	}
 }
