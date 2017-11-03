@@ -76,12 +76,12 @@ extension CreateGroupVC: UITableViewDataSource, UITableViewDelegate {
 		guard let chosenUser = cell.email.text else { return }
 		if !chosenUsers.contains(chosenUser) {
 			chosenUsers.append(chosenUser)
-			groupMemberLabel.text = chosenUsers.joined(separator: ", ")
+			groupMemberLabel.text = chosenUsers.joined(separator: "\n")
 			doneButton.isHidden = false
 		} else {
 			chosenUsers = chosenUsers.filter { $0 != chosenUser }
 			if chosenUsers.count >= 1 {
-				groupMemberLabel.text = chosenUsers.joined(separator: ", ")
+				groupMemberLabel.text = chosenUsers.joined(separator: "\n")
 			} else {
 				groupMemberLabel.text = "invite people"
 				doneButton.isHidden = true
