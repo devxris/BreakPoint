@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class CreateGroupVC: UIViewController {
 
@@ -43,7 +44,7 @@ class CreateGroupVC: UIViewController {
 			emails = []
 			tableView.reloadData()
 		} else {
-			DataService.instance.getEmail(forSearchQuery: searchQuery, completion: { (fetchedEmails) in
+			DataService.instance.getEmails(forSearchQuery: searchQuery, completion: { (fetchedEmails) in
 				self.emails = fetchedEmails
 				DispatchQueue.main.async { self.tableView.reloadData() }
 			})
@@ -51,7 +52,24 @@ class CreateGroupVC: UIViewController {
 	}
 	
 	// target actions
-	@IBAction func done(_ sender: UIButton) { }
+	@IBAction func done(_ sender: UIButton) {
+		guard let title = titleField.text, title != "" else { return }
+		guard let desc = descriptionField.text, desc != "" else { return }
+		guard let currentUserId = Auth.auth().currentUser?.uid else { return }
+		DataService.instance.getIds(from: chosenUsers) { (fetechedIds) in
+			// add current user to fetchedIds
+			var userIds = fetechedIds
+			userIds.append(currentUserId)
+			// create group
+			DataService.instance.createGroup(with: title, and: desc, for: userIds) { (groupCreated) in
+				if groupCreated {
+					self.dismiss(animated: true, completion: nil)
+				} else {
+					print("Group is not created...")
+				}
+			}
+		}
+	}
 	
 	@IBAction func cancel(_ sender: UIButton) { dismiss(animated: true, completion: nil) }
 }

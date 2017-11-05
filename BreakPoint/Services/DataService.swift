@@ -19,6 +19,9 @@ struct DBPathKeys {
 	static let feed = "feed"
 	static let content = "content"
 	static let senderId = "senderId"
+	static let title = "title"
+	static let description = "description"
+	static let members = "memebers"
 }
 
 class DataService {
@@ -72,7 +75,7 @@ class DataService {
 		}
 	}
 	
-	func getEmail(forSearchQuery query: String, completion: @escaping (_ emails: [String]) -> Void) {
+	func getEmails(forSearchQuery query: String, completion: @escaping (_ emails: [String]) -> Void) {
 		var emails = [String]()
 		REF_USERS.observe(.value) { (users) in
 			guard let users = users.children.allObjects as? [DataSnapshot] else { return }
@@ -83,6 +86,33 @@ class DataService {
 				}
 			}
 			completion(emails)
+		}
+	}
+	
+	func getIds(from usernames: [String], completion: @escaping (_ uids: [String]) -> Void) {
+		REF_USERS.observeSingleEvent(of: .value) { (users) in
+			guard let users = users.children.allObjects as? [DataSnapshot] else { return }
+			var uids = [String]()
+			users.forEach {
+				let email = $0.childSnapshot(forPath: DBPathKeys.email).value as! String
+				if usernames.contains(email) {
+					uids.append($0.key)
+				}
+			}
+			completion(uids)
+		}
+	}
+	
+	func createGroup(with title: String, and description: String, for userIds: [String], completion: @escaping (_ groupCreated: Bool) -> (Void)) {
+		REF_GROUPS.childByAutoId().updateChildValues([DBPathKeys.title: title,
+													  DBPathKeys.description: description,
+													  DBPathKeys.members: userIds])
+		{ (error, reference) in
+			if error != nil {
+				completion(false); print("error on creating group...")
+			} else {
+				completion(true)
+			}
 		}
 	}
 }
