@@ -22,6 +22,7 @@ struct DBPathKeys {
 	static let title = "title"
 	static let description = "description"
 	static let members = "memebers"
+	static let messages = "messages"
 }
 
 class DataService {
@@ -46,6 +47,9 @@ class DataService {
 	func uploadPost(with message: String, forUID uid: String, withGroupKey groupKey: String?, completion: @escaping (_ status: Bool) -> Void) {
 		if groupKey != nil {
 			// send to group reference
+			REF_GROUPS.child(groupKey!).child(DBPathKeys.messages).childByAutoId().updateChildValues(
+				[DBPathKeys.content: message, DBPathKeys.senderId: uid])
+			completion(true)
 		} else {
 			REF_FEED.childByAutoId().updateChildValues([DBPathKeys.content: message, DBPathKeys.senderId: uid])
 			completion(true)
@@ -63,6 +67,20 @@ class DataService {
 				messages.append(message)
 			}
 			compeletion(messages)
+		}
+	}
+	
+	func getAllMessages(for group: Group, completion: @escaping (_ messages: [Message]) -> Void) {
+		var groupMessages = [Message]()
+		REF_GROUPS.child(group.key).child(DBPathKeys.messages).observeSingleEvent(of: .value) { (fetchedGroupMessages) in
+			guard let fetchedGroupMessages = fetchedGroupMessages.children.allObjects as? [DataSnapshot] else { return }
+			fetchedGroupMessages.forEach {
+				let content = $0.childSnapshot(forPath: DBPathKeys.content).value as! String
+				let senderId = $0.childSnapshot(forPath: DBPathKeys.senderId).value as! String
+				let message = Message(content: content, senderId: senderId)
+				groupMessages.append(message)
+			}
+			completion(groupMessages)
 		}
 	}
 	
