@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		45526BEA1FAEFA880001407D /* GroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45526BE91FAEFA880001407D /* GroupCell.swift */; };
 		4556AA5A1FA7709F000A7D20 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4556AA591FA7709F000A7D20 /* AppDelegate.swift */; };
 		4556AA5C1FA7709F000A7D20 /* GroupsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4556AA5B1FA7709F000A7D20 /* GroupsVC.swift */; };
 		4556AA5E1FA7709F000A7D20 /* FeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4556AA5D1FA7709F000A7D20 /* FeedVC.swift */; };
@@ -33,6 +34,7 @@
 /* Begin PBXFileReference section */
 		1ECF01F638B620742EB48990 /* Pods_BreakPoint.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BreakPoint.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2311AC9DBFA487E5B6004539 /* Pods-BreakPoint.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BreakPoint.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BreakPoint/Pods-BreakPoint.debug.xcconfig"; sourceTree = "<group>"; };
+		45526BE91FAEFA880001407D /* GroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCell.swift; sourceTree = "<group>"; };
 		4556AA561FA7709F000A7D20 /* BreakPoint.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BreakPoint.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4556AA591FA7709F000A7D20 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4556AA5B1FA7709F000A7D20 /* GroupsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsVC.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 				4556AA5F1FA7709F000A7D20 /* Main.storyboard */,
 				4556AA881FA96DD1000A7D20 /* FeedCell.swift */,
 				45E6AEA01FAB18740033A5B7 /* UserCell.swift */,
+				45526BE91FAEFA880001407D /* GroupCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -316,6 +319,7 @@
 				4556AA831FA87927000A7D20 /* MeVC.swift in Sources */,
 				4556AA891FA96DD1000A7D20 /* FeedCell.swift in Sources */,
 				4556AA791FA85F03000A7D20 /* AuthVC.swift in Sources */,
+				45526BEA1FAEFA880001407D /* GroupCell.swift in Sources */,
 				4556AA5E1FA7709F000A7D20 /* FeedVC.swift in Sources */,
 				4556AA7B1FA85F14000A7D20 /* LoginVC.swift in Sources */,
 				4556AA811FA8651A000A7D20 /* AuthService.swift in Sources */,
