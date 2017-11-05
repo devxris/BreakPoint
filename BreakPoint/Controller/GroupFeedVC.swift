@@ -71,7 +71,10 @@ class GroupFeedVC: UIViewController {
 		}
 	}
 	
-	@IBAction func back(_ sender: UIButton) { dismiss(animated: true, completion: nil) }
+	@IBAction func back(_ sender: UIButton) {
+		//dismiss(animated: true, completion: nil)
+		dismissDetail()
+	}
 }
 
 extension GroupFeedVC: UITableViewDataSource, UITableViewDelegate {
