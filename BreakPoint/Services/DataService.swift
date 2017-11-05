@@ -115,4 +115,22 @@ class DataService {
 			}
 		}
 	}
+	
+	func getAllGroups(completion: @escaping (_ groups: [Group]) -> Void) {
+		var groups = [Group]()
+		REF_GROUPS.observeSingleEvent(of: .value) { (fetchedGroups) in
+			guard let fetchedGroups = fetchedGroups.children.allObjects as? [DataSnapshot] else { return }
+			fetchedGroups.forEach {
+				let members = $0.childSnapshot(forPath: DBPathKeys.members).value as! [String]
+				if members.contains(Auth.auth().currentUser!.uid) {
+					let title = $0.childSnapshot(forPath: DBPathKeys.title).value as! String
+					let description = $0.childSnapshot(forPath: DBPathKeys.description).value as! String
+					let key = $0.key
+					let group = Group(title: title, description: description, key: key, members: members, memberCount: members.count)
+					groups.append(group)
+				}
+			}
+			completion(groups)
+		}
+	}
 }
