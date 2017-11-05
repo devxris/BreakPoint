@@ -133,4 +133,18 @@ class DataService {
 			completion(groups)
 		}
 	}
+	
+	func getEmails(for group: Group, completion: @escaping (_ emails: [String]) -> Void) {
+		var emails = [String]()
+		REF_USERS.observeSingleEvent(of: .value) { (fetchedEmails) in
+			guard let fetchedEmails = fetchedEmails.children.allObjects as? [DataSnapshot] else { return }
+			fetchedEmails.forEach {
+				if group.members.contains($0.key) {
+					let email = $0.childSnapshot(forPath: DBPathKeys.email).value as! String
+					emails.append(email)
+				}
+			}
+			completion(emails)
+		}
+	}
 }
